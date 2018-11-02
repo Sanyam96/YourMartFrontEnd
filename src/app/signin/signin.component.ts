@@ -28,12 +28,12 @@ export class SigninComponent implements OnInit {
   }
 
   loginUser() {
-    console.log("yahahah");
-    
+
     if(this.signinForm.valid) {
       console.log(this.signinForm.value);
       
       this.userService.loginUser(this.signinForm.value).subscribe((response : any) => {
+        localStorage.setItem("SELLERID", response.sellerId);
         // localStorage.setItem("token",response.token);
         console.log(response);
         this.userService.setUsername(response.username);
