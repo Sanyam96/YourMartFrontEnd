@@ -34,10 +34,16 @@ export class SigninComponent implements OnInit {
       console.log(this.signinForm.value);
       
       this.userService.loginUser(this.signinForm.value).subscribe((response : any) => {
-        localStorage.setItem("token",response.token);
+        // localStorage.setItem("token",response.token);
+        console.log(response);
         this.userService.setUsername(response.username);
         // console.log("Token: "+response.user.token);
-        this.router.navigate(['/'])
+        if(response.data !== "false") {
+          this.router.navigate(['/'])
+        }
+        else if(response.data === "false") {
+          console.log("Error Login")
+        }
       })
     }
   }
