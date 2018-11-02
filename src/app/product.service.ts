@@ -8,11 +8,12 @@ export class ProductService {
 
   url: String = "http://localhost:8080/api/v1"
   sellerId: number = 1
+  id = localStorage.getItem("SELLERID");
 
   constructor(private http: HttpClient) { }
 
   getProducts(products?: any) {
-    const url = `${this.url}/seller/${this.sellerId}/products`
+    const url = `${this.url}/seller/${this.id}/products`
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'

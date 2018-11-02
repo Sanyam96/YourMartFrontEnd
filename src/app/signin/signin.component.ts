@@ -33,7 +33,8 @@ export class SigninComponent implements OnInit {
       console.log(this.signinForm.value);
       
       this.userService.loginUser(this.signinForm.value).subscribe((response : any) => {
-        localStorage.setItem("SELLERID", response.sellerId);
+        // localStorage.setItem("SELLERID", response.sellerId);
+        localStorage.setItem("SELLERID", this.signinForm.value.id);
         // localStorage.setItem("token",response.token);
         console.log(response);
         this.userService.setUsername(response.username);
@@ -41,7 +42,7 @@ export class SigninComponent implements OnInit {
         // console.log("Token: "+response.user.token);
 
         if(response.data !== "false") {
-          this.router.navigate(['/'])
+          this.router.navigate(['/home'])
         }
         else if(response.data === "false") {
           console.log("Error Login")
