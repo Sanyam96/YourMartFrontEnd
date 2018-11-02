@@ -15,6 +15,7 @@ import { SignupComponent } from './signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 const routes : Routes = [
   {path : 'home', component: HomeComponent},
@@ -33,7 +34,8 @@ const routes : Routes = [
     SigninComponent,
     SignupComponent,
     ImageUploaderComponent,
-    AddProductComponent
+    AddProductComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

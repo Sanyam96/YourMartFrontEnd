@@ -35,7 +35,8 @@ export class SignupComponent implements OnInit {
     if(this.signupForm.valid) {
       console.log(this.signupForm.value);
       
-      this.userService.registerUser(this.signupForm.value).subscribe((response : any) => {
+      this.userService.registerUser(this.signupForm.value).subscribe(
+        (response : any) => {
         this.registeredId = response.data.id
         console.log(response.data.id)
       },(error) => {

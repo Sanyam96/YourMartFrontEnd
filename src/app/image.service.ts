@@ -15,8 +15,8 @@ export class ImageService {
     return this.http.post(requestUrl,image);
   }
 
-  // getProductImages(productId) {
-  //   const requestUrl = `${this.baseUrl}/product/${productId}/image`
-  //   return this.http.get(requestUrl);
-  // }
+  getProductImages(productId) {
+    const requestUrl = `${this.baseUrl}/images/${productId}`
+    return this.http.get(requestUrl);
+  }
 }
