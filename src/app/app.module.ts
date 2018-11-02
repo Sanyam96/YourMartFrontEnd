@@ -12,11 +12,13 @@ import { HomeComponent } from './home/home.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule } from '@angular/forms';
+import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 
 const routes : Routes = [
   {path : '', component: HomeComponent},
   {path : 'signup', component: SignupComponent},
-  {path : 'signin', component: SigninComponent}
+  {path : 'signin', component: SigninComponent},
+  {path : 'image', component: ImageUploaderComponent}
 ]
 
 @NgModule({
@@ -25,7 +27,8 @@ const routes : Routes = [
     HeaderComponent,
     HomeComponent,
     SigninComponent,
-    SignupComponent
+    SignupComponent,
+    ImageUploaderComponent
   ],
   imports: [
     BrowserModule,
