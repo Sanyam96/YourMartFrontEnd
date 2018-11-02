@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   products: any
+  dropdownHeading : string = 'productName'
 
   constructor(private productService: ProductService) { }
 
@@ -17,8 +18,8 @@ export class HomeComponent implements OnInit {
       (response: any) => {
         this.products = response.data;
         console.log(response);
-        console.log(response.data[0].id);
-        console.log(response.data[1].productName);
+        // console.log(response.data[0].id);
+        // console.log(response.data[1].productName);
         console.log(response.error);
         
       },
@@ -26,6 +27,23 @@ export class HomeComponent implements OnInit {
 
       }
     )
+  }
+
+  searchProducts(searchQuery) {
+    console.log(searchQuery);
+    console.log(this.dropdownHeading);
+    
+    this.productService.getProducts(this.dropdownHeading,searchQuery).subscribe( 
+      (response: any) => {
+      this.products = response.data;
+    })
+    
+  }
+
+  
+
+  setSearchKey(key) {
+    this.dropdownHeading = key
   }
 
   

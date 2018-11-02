@@ -11,9 +11,9 @@ export class ProductService {
   id = localStorage.getItem("SELLERID");
 
   constructor(private http: HttpClient) { }
+  getProducts(searchParam?: string, searchQuery?: string) {
 
-  getProducts(products?: any) {
-    const url = `${this.url}/seller/${this.id}/products`
+    const url = `${this.url}/seller/${this.id}/products?${searchParam}=${searchQuery}`
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'

@@ -1,11 +1,25 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      </div>
+      <div class="input-group mb-3">
+        <div class="btn-group" dropdown>
+            <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-secondary dropdown-toggle" aria-controls="dropdown-basic" aria-expanded="false" aria-haspopup="true">
+              {{ dropdownHeading }} 
+              <span class="caret"></span>
+            </button>
+            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+              <li role="menuitem"><a class="dropdown-item" (click)="setSearchKey('productName')">Name</a></li>
+              <li class="divider dropdown-divider"></li>
+              <li role="menuitem"><a class="dropdown-item" (click)="setSearchKey('productCode')">Code</a></li> 
+            </ul>
+        </div>
+      <input type="text" class="form-control" #searchQuery aria-label="Text input with dropdown button">
+        </div>
+      </div>>
+      
       <div class="col-md-4">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </div>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="searchProducts(searchQuery.value)">Search</button>
+      </div>
   </div>
 
   <div class="row">
@@ -20,6 +34,7 @@
             <th scope="col">SSP</th>
             <th scope="col">YMP</th>
             <th scope="col">Category</th>
+            <th scope="col">Details</th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +46,9 @@
             <td>{{ product.ssp }}</td>
             <td>{{ product.ymp }}</td>
             <td>{{ product.categoryName }}</td>
+            <td>
+              <a href="">View</a>
+            </td>
           </tr>
         </tbody>
       </table>

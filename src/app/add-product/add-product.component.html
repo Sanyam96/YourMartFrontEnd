@@ -1,0 +1,47 @@
+<form [formGroup]="productForm" (ngSubmit)="saveProduct()" class="container">
+    <div class="form-group">
+      <label>code</label>
+      <input class="form-control form-control-sm" type="text" formControlName="productCode">
+    </div>
+    <div class="form-group">
+      <label>Name</label>
+      <input class="form-control form-control-sm" type="text" formControlName="productName">
+    </div>
+    <div class="form-group">
+      <label>short Description</label>
+      <input class="form-control form-control-sm" type="text" formControlName="shortDescription">
+    </div>
+    <div class="form-group">
+      <label>Long Description</label>
+      <input class="form-control form-control-sm" type="text" formControlName="longDescription">
+    </div>
+    <div class="form-group">
+      <label>Dimensions</label>
+      <input class="form-control form-control-sm" type="text" formControlName="dimensions">
+    </div>
+    <div class="form-group">
+      <label>category</label>
+      <input class="form-control form-control-sm" type="number" formControlName="categoryId">
+    </div>
+    <div class="form-group">
+      <label>MRP</label>
+      <input class="form-control form-control-sm" type="text" formControlName="mrp">
+    </div>
+    <div class="form-group">
+      <label>SSP</label>
+      <input class="form-control form-control-sm" type="text" formControlName="ssp">
+    </div>
+    <div class="form-group">
+      <label>YMP</label>
+      <input class="form-control form-control-sm" type="text" formControlName="ymp">
+    </div>
+    <!-- <div class="form-group">
+      <label>usage instruction</label>
+      <input class="form-control form-control-sm" type="text" formControlName="instruction">
+    </div>
+    <div class="form-group">
+      <label>Attributes</label>
+      <input class="form-control form-control-sm" type="text" formControlName="attributes">
+    </div> -->
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form> 

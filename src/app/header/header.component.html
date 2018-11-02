@@ -3,16 +3,22 @@
   <a class="navbar-brand doBlack">YourMart</a>
   <ul class="nav">
       <li class="nav-item">
-          <a routerLink='/' class="nav-link doBlack">Home</a>
+        <a routerLink='/' class="nav-link">Home</a>
       </li>
       <li class="nav-item">
-          <a routerLink='/signin' class="nav-link doBlack">Signin</a>
+        <a routerLink='/signin' class="nav-link" *ngIf="!username">Signin</a>
       </li>
       <li class="nav-item">
-          <a routerLink='/signup' class="nav-link doBlack">Signup</a>
+        <a routerLink='/signup' class="nav-link" *ngIf="!username">Signup</a>
       </li>
       <li class="nav-item">
-        <p (click)='logout()' class="nav-link doBlack">Logout</p>
+        <a class="nav-link" *ngIf="username" routerLink='/product'>Add Product</a>
+      </li>
+      <li class="nav-item">
+          <a (click)='logout()' class="nav-link" *ngIf="username">Logout</a>
+      </li>
+      <li>
+          {{ username }}
     </li>
       <!-- <li class="nav-item">
           <a routerLink='/signup' class="nav-link doBlack" *ngIf="username" routerLink='/newarticle' (click)="addNewArticle()">New Article</a>
