@@ -1,4 +1,49 @@
-<nav class="navbar navbar-light bg-light justify-content-between head">
+<nav class="navbar navbar-expand-lg navbar-light" style="box-shadow: 1px 1px #888888c5;padding-bottom: 1px;padding-top:2px;">
+    <a class="navbar-brand" href="#">
+        <img src="https://images.all-free-download.com/images/graphiclarge/shopping_cart_vector_graphics_558084.jpg" height="30"
+            alt="mart">yourMart
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        </ul>
+        <!-- <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+        <button class="nav-link" class="logbtn" *ngIf="username" routerLink='/home'>
+            <h5><span class="badge badge-secondary">{{ username }}</span></h5>
+        </button>
+        <button class="nav-link" class="logbtn" *ngIf="username" routerLink='/product'>
+            Add Product
+            <i class="far fa-plus-square"></i>
+        </button>
+        <button class="nav-link" class="logbtn" *ngIf="!username" routerLink='/signin'>
+            Signin
+            <i class="fas fa-sign-in-alt"></i>
+        </button>
+        <button type="submit" class="logbtn" *ngIf="username" (click)='logout()'>
+            signout
+            <i class="fas fa-sign-out-alt"></i>
+        </button>
+        <button type="submit" class="logbtn" *ngIf="!username" routerLink='/signup'>
+            Register
+            <i class="fas fa-user-plus"></i>
+        </button>
+    </div>
+</nav>
+
+
+<!-- <nav class="navbar navbar-light bg-light justify-content-between head">
 
   <a class="navbar-brand doBlack">YourMart</a>
   <ul class="nav">
@@ -20,12 +65,5 @@
       <li>
           {{ username }}
     </li>
-      <!-- <li class="nav-item">
-          <a routerLink='/signup' class="nav-link doBlack" *ngIf="username" routerLink='/newarticle' (click)="addNewArticle()">New Article</a>
-      </li> -->
-      
-      <!-- <li class="nav-item">
-          <a [routerLink]="['/profile',username]" class="nav-link doBlack" *ngIf="username">{{ username }}</a>
-      </li> -->
   </ul>
-</nav>
+</nav> -->
