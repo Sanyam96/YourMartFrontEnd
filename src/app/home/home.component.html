@@ -1,3 +1,119 @@
-<p>
+<!-- <p>
   home works!
 </p>
+
+<br>
+<br>
+<br>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="input-group mb-3">
+        <div class="btn-group" dropdown>
+          <button id="button-basic" dropdownToggle type="button" class="btn btn-block btn-outline-secondary dropdown-toggle"
+            aria-controls="dropdown-basic" aria-expanded="false" aria-haspopup="true">
+            {{ searchBy.toUpperCase() }} <span class="caret"></span>
+          </button>
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+            <li role="menuitem"><a class="dropdown-item" (click)="setSearchBy('name')">Name</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" (click)="setSearchBy('code')">Code</a></li>
+          </ul>
+        </div>
+      </div>
+      <input type="text" class="form-control" #searchValue placeholder="Type Here..">
+      <button class="btn btn-outline-success btn-block mt-3" type="submit" (click)="searchProducts(searchValue.value)">Search</button>
+
+      <div class="input-group mt-3">
+        <div class="btn-group" dropdown>
+          <button id="button-basic" dropdownToggle type="button" class="btn btn-block btn-outline-secondary dropdown-toggle"
+            aria-controls="dropdown-basic" aria-expanded="false" aria-haspopup="true">
+            {{ status.toUpperCase() }} <span class="caret"></span>
+          </button>
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+            <li role="menuitem"><a class="dropdown-item" (click)="setStatus('new',1)">New</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" (click)="setStatus('approved',2)">Approved</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" (click)="setStatus('rejected',3)">Rejected</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" (click)="setStatus('review',4)">Review</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="input-group mt-3">
+        <div class="btn-group" dropdown>
+          <button id="button-basic" dropdownToggle type="button" class="btn btn-block btn-outline-secondary dropdown-toggle"
+            aria-controls="dropdown-basic" aria-expanded="false" aria-haspopup="true">
+            {{ selectedCategory.toUpperCase() }} <span class="caret"></span>
+          </button>
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+            <div *ngFor = "let category of categories">
+            <li role="menuitem"><a class="dropdown-item" (click)="setCategory(category)">{{category.name}}</a></li>
+            <li class="divider dropdown-divider"></li>
+          </div>
+          </ul>
+        </div>
+      </div>
+
+      <div class="input-group mt-3">
+        <div class="btn-group" dropdown>
+          <button id="button-basic" dropdownToggle type="button" class="btn btn-block btn-outline-secondary dropdown-toggle"
+            aria-controls="dropdown-basic" aria-expanded="false" aria-haspopup="true">
+            {{ sortBy.toUpperCase() }} <span class="caret"></span>
+          </button>
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+            <li role="menuitem"><a class="dropdown-item" (click)="setSortBy('code')">Code</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" (click)="setSortBy('name')">Name</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" (click)="setSortBy('mrp')">MRP</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" (click)="setSortBy('ssp')">SSP</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" (click)="setSortBy('ymp')">YMP</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <button class="btn btn-outline-success btn-block mt-3" type="submit" (click)="applyAll(searchValue.value)">Apply</button>
+
+    </div>
+
+    <div class="col-md-9">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Code</th>
+            <th scope="col">MRP</th>
+            <th scope="col">SSP</th>
+            <th scope="col">YMP</th>
+            <th scope="col">Category</th>
+            <th scope="col">Status</th>
+            <th scope="col">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <th scope="row">{{ product.id }}</th>
+            <td>{{ product.name }}</td>
+            <td>{{ product.code }}</td>
+            <td>{{ product.mrp }}</td>
+            <td>{{ product.ssp }}</td>
+            <td>{{ product.ymp }}</td>
+            <td>{{ product.category.name }}</td>
+            <td>{{ product.status }}</td>
+            <td>
+              <a [routerLink]="['/product',product.id]">View</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div> -->

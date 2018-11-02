@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 
 const routes : Routes = [
-  {path : '', component: HomeComponent},
+  {path : 'home', component: HomeComponent},
   {path : 'signup', component: SignupComponent},
   {path : 'signin', component: SigninComponent},
   {path : 'image', component: ImageUploaderComponent}

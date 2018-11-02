@@ -11,7 +11,7 @@ export class UserService {
   url: string = "http://localhost:8080/api/v1"
   currentUsername = new Subject<string>()
   constructor(private http: HttpClient) { }
-   loginUser(user: any) {
+  loginUser(user: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
