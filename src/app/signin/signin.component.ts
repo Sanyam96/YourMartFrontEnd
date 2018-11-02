@@ -32,25 +32,33 @@ export class SigninComponent implements OnInit {
     if(this.signinForm.valid) {
       console.log(this.signinForm.value);
       
-      this.userService.loginUser(this.signinForm.value).subscribe((response : any) => {
-        // localStorage.setItem("SELLERID", response.sellerId);
-        localStorage.setItem("SELLERID", this.signinForm.value.id);
-        // localStorage.setItem("token",response.token);
-        console.log(response);
-        this.userService.setUsername(response.username);
-        console.log(response.username);
-        // console.log("Token: "+response.user.token);
+      this.userService.loginUser(this.signinForm.value).subscribe(
+        (response : any) => {
+          // localStorage.setItem("SELLERID", response.sellerId);
+          localStorage.setItem("SELLERID", this.signinForm.value.id);
+          // localStorage.setItem("token",response.token);
+          console.log(response);
+          this.userService.setUsername(response.username);
+          console.log(response.username);
+          // console.log("Token: "+response.user.token);
 
-        if(response.data !== "false") {
-          this.router.navigate(['/home'])
+          if(response.data !== "false") {
+            this.router.navigate(['/home'])
+          }
+          else if(response.data === "false") {
+            console.log("Error Login")
+          }
+        }, 
+        (error) => {
+          console.log("error");
+          
         }
-        else if(response.data === "false") {
-          console.log("Error Login")
-        }
-      })
+      )
     }
+
   }
-   setUsername(username: string) {
+
+  setUsername(username: string) {
     this.currentUsername.next(username)
   }
    // getCurrentUser(){
