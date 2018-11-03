@@ -31,8 +31,8 @@ export class ProductDetailComponent implements OnInit {
       }
     )
     this.imageService.getProductImages(this.productId).subscribe(
-      (images: any[]) => {
-        this.images = images
+      (images: any) => {
+        this.images = images.data
         this.imagesLoaded = true
       }
     )
