@@ -1,3 +1,6 @@
+<br>
+<br>
+
 <div class="container">
   <div class="row">
     <div class="col-md-6">
@@ -47,14 +50,42 @@
             <td>{{ product.ymp }}</td>
             <td>{{ product.categoryName }}</td>
             <td>
-              <a href="">View</a>
+              <a routerLink="/product/{{product.id}}">View</a>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="col-md-4">
-      <p>filters</p>
+      <div style="padding-top:30px;padding-left:30px;">
+        <form>
+           <div class="row">
+            <div class="col-md-6">
+              <h5>Choose status:</h5>
+              <input type="radio" name="status" value="NEW_CHECKED"/>NEW
+              <br />
+              <input type="radio" name="status" value="APPROVED"/>APPROVED
+              <br />
+              <input type="radio" name="status" value="REVIEW"/>REVIEW
+              <br />
+              <input type="radio" name="status" value="REJECTED"/>REJECTED
+            </div>
+            <div class="col-md-6">
+              <h5>Sort By:</h5>
+               <input type="radio" name="sortBy" value="mrp">MRP
+              <br />
+              <input type="radio" name="sortBy" value="ssp"/>SSP
+              <br />
+              <input type="radio" name="sortBy" value="ymp" />YMP
+              <br />
+              <input type="radio" name="sortBy" value="code" />Code
+              <br />
+            </div>
+           </div>
+           
+           <input type="submit" class="btn" value="submit">
+        </form>
+      </div>
     </div>
   </div>
 </div>

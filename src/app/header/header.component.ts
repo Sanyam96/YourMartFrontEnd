@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  username : String = 'hello'
+  username : String
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
 
   logout(){
     localStorage.clear();
-    this.userService.setUsername(null);
+    this.userService.setUsername(localStorage.getItem("SELLERID"));
     this.router.navigate(['/signin']);
   }
 

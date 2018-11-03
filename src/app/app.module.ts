@@ -23,7 +23,8 @@ const routes : Routes = [
   {path : 'signin', component: SigninComponent},
   {path : 'image', component: ImageUploaderComponent},
   {path : 'product/image', component: ImageUploaderComponent},
-  {path : 'product', component: AddProductComponent}
+  {path : 'product', component: AddProductComponent},
+  {path : 'product/:id',component:ProductDetailComponent}  
 ]
 
 @NgModule({

@@ -38,7 +38,7 @@ export class SigninComponent implements OnInit {
           localStorage.setItem("SELLERID", this.signinForm.value.id);
           // localStorage.setItem("token",response.token);
           console.log(response);
-          this.userService.setUsername(response.username);
+          this.userService.setUsername(response.data.id);
           console.log(response.username);
           // console.log("Token: "+response.user.token);
 
