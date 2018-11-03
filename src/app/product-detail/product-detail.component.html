@@ -1,3 +1,93 @@
-<p>
-  product-detail works!
-</p>
+<ng-container *ngIf="dataLoaded">
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col-md-4">
+          <ng-container *ngIf="imagesLoaded">
+            <div *ngFor="let image of images">
+              <img [src]="'data:image/jpeg;base64,'+image.image" height="200px" width="300px" />
+            </div>
+          </ng-container>
+        </div>
+        <div class="col-md-8">
+          <!-- <button class="btn btn-outline-secondary float-right w-25 mb-3" [routerLink]="['/editor',product.id]">EDIT</button> -->
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td>YourMart ID</td>
+                <td>{{ product.id }}</td>
+              </tr>
+              <tr>
+                <td>Product Code</td>
+                <td>{{ product.productCode }}</td>
+              </tr>
+              <tr>
+                <td>Product Name</td>
+                <td>{{ product.productName }}</td>
+              </tr>
+              <tr>
+                <td>Short Description</td>
+                <td>{{ product.shortDescription }}</td>
+              </tr>
+              <tr>
+                <td>Long Description</td>
+                <td>{{ product.longDescription }}</td>
+              </tr>
+              <tr>
+                <td>Dimensions</td>
+                <td>{{ product.dimensions }}</td>
+              </tr>
+              <tr>
+                <td>Category</td>
+              </tr>
+              <td>{{ product.categoryName }}</td>
+              <tr>
+                <td>Category Id</td>
+                <td>{{ product.categoryId }}</td>
+              </tr>>
+              <tr>
+                <td>MRP</td>
+                <td>{{ product.mrp }}</td>
+              </tr>
+              <tr>
+                <td>SSP</td>
+                <td>{{ product.ssp }}</td>
+              </tr>
+              <tr>
+                <td>YMP</td>
+                <td>{{ product.ymp }}</td>
+              </tr>
+              <tr>
+                <td>Usage Instructions</td>
+                <td>{{ product.usageInstructions }}</td>
+              </tr>
+              <tr>
+                <td>Product Attributes</td>
+                <td>{{ product.attributes }}</td>
+              </tr>
+              <tr>
+                <td>Added On</td>
+                <td>{{ product.createdAt }}</td>
+              </tr>
+              <tr>
+                <td>Comment</td>
+                <td>{{ product.comment }}</td>
+              </tr>
+              <tr>
+                <td>Status</td>
+                <td>{{ product.productStatus }}</td>
+              </tr>
+              <tr>
+                <td>Product Status Id</td>
+                <td>{{ product.productStatusId }}</td>>
+              </tr>
+              <tr>
+                <td>Seller Id</td>
+                <td>{{ product.sellerId }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  
+    </div>
+  </ng-container>

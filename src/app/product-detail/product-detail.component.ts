@@ -1,4 +1,7 @@
+import { ImageService } from './../image.service';
+import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
@@ -7,9 +10,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailComponent implements OnInit {
 
-  constructor() { }
+  productId: number
+  product: any
+  dataLoaded: boolean = false;
+  imagesLoaded: boolean = false;
+  images: any[]
+
+  constructor(
+    private productService : ProductService,
+    private imageService : ImageService,
+    private route : ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.productId = +this.route.snapshot.paramMap.get('id')
+    this.productService.getProductById(this.productId).subscribe(
+      (product: any) => {
+        this.product = product
+        this.dataLoaded = true;
+      }
+    )
+    this.imageService.getProductImages(this.productId).subscribe(
+      (images: any[]) => {
+        this.images = images
+        this.imagesLoaded = true
+      }
+    )
   }
 
 }

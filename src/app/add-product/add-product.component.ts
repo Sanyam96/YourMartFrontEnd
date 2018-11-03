@@ -12,7 +12,11 @@ export class AddProductComponent implements OnInit {
 
   productForm: FormGroup
 
-  constructor(private formBuilder: FormBuilder, private productService: ProductService, private router: Router) { 
+  constructor(
+    private formBuilder: FormBuilder, 
+    private productService: ProductService, 
+    private router: Router
+    ) { 
     this.productForm = this.formBuilder.group({
       productCode: ['', Validators.compose([Validators.required])],
       productName: ['', Validators.compose([Validators.required])],
@@ -32,17 +36,17 @@ export class AddProductComponent implements OnInit {
   ngOnInit() {
   }
 
-  // saveProduct() {
-  //   if(this.productForm.valid) {
-  //     console.log(this.productForm.value);
+  saveProduct() {
+    if(this.productForm.valid) {
+      console.log(this.productForm.value);
       
-  //     this.productService.addProduct(this.productForm.value,10).subscribe((response : any) => {
-  //       this.router.navigate(['/product/image'])
-        
-  //     },(error) => {
-  //       console.log(error);
-        
-  //     })
-  //   }
-  // }
+      this.productService.addProduct(this.productForm.value).subscribe(
+        (response : any) => {
+        this.router.navigate(['/product/image'])
+      },
+      (error) => {
+        console.log(error);
+      })
+    }
+  }
  }
