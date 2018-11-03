@@ -14,7 +14,7 @@ export class ImageUploaderComponent implements OnInit {
   image : any
   imageForm : FormGroup
   selectedFile: File
-  productId : number
+  productId : any
   
   constructor(    
     private imageService: ImageService,
@@ -40,11 +40,14 @@ export class ImageUploaderComponent implements OnInit {
   uploadImage() {
     let form = new FormData()
     form.append('image', this.image)
-    this.imageService.uploadImage(form, 1).subscribe(
+    this.productId = localStorage.getItem("PRODUCTID")
+    this.imageService.uploadImage(form, this.productId).subscribe(
       (response) => {
         console.log(response)
       }
     )
+    localStorage.removeItem("PRODUCTID")
+    this.router.navigate(['/home'])
 
   }
   // console.log(this.imageForm.value);

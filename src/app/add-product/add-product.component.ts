@@ -42,7 +42,10 @@ export class AddProductComponent implements OnInit {
       
       this.productService.addProduct(this.productForm.value).subscribe(
         (response : any) => {
-        this.router.navigate(['/product/image'])
+          console.log(response.data.id);
+          localStorage.setItem("PRODUCTID", response.data.id);
+          
+          this.router.navigate(['/product/image'])
       },
       (error) => {
         console.log(error);
