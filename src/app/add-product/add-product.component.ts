@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from './../product.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -11,11 +11,13 @@ import { Component, OnInit } from '@angular/core';
 export class AddProductComponent implements OnInit {
 
   productForm: FormGroup
+  productId: string
 
   constructor(
     private formBuilder: FormBuilder, 
     private productService: ProductService, 
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
     ) { 
     this.productForm = this.formBuilder.group({
       productCode: ['', Validators.compose([Validators.required])],
@@ -34,22 +36,42 @@ export class AddProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.productId = this.route.snapshot.paramMap.get('id')
+    if (this.productId != null) {
+      this.productService.getProductById(+this.productId).subscribe(
+        (product: any) => {
+          console.log(product)
+          this.productForm.patchValue(product.data)
+        }
+      )
+    }
+
   }
 
   saveProduct() {
     if(this.productForm.valid) {
       console.log(this.productForm.value);
+      if(this.productId != null) {
+        this.productService.updateProduct(this.productForm.value, this.productId).subscribe(
+          (response : any) => {
+            console.log(response.data.id);
+            this.router.navigate(['/home'])
+          }
+        )
+      }
+      else {
+        this.productService.addProduct(this.productForm.value).subscribe(
+          (response : any) => {
+            console.log(response.data.id);
+            localStorage.setItem("PRODUCTID", response.data.id);
+            
+            this.router.navigate(['/product/image'])
+        },
+        (error) => {
+          console.log(error);
+        })
+      }
+      }
       
-      this.productService.addProduct(this.productForm.value).subscribe(
-        (response : any) => {
-          console.log(response.data.id);
-          localStorage.setItem("PRODUCTID", response.data.id);
-          
-          this.router.navigate(['/product/image'])
-      },
-      (error) => {
-        console.log(error);
-      })
-    }
   }
  }

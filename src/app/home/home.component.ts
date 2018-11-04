@@ -10,6 +10,8 @@ export class HomeComponent implements OnInit {
 
   products: any
   dropdownHeading : string = 'productName'
+  sortParameter: string = null;
+  sortBy: string
 
   constructor(private productService: ProductService) { }
 
@@ -33,17 +35,19 @@ export class HomeComponent implements OnInit {
     console.log(searchQuery);
     console.log(this.dropdownHeading);
     
-    this.productService.getProducts(this.dropdownHeading,searchQuery).subscribe( 
+    this.productService.getProducts(this.dropdownHeading,searchQuery, this.sortParameter).subscribe( 
       (response: any) => {
       this.products = response.data;
     })
     
   }
 
-  
-
   setSearchKey(key) {
     this.dropdownHeading = key
+  }
+
+  setSortBy(key) {
+    this.sortParameter = key;
   }
 
   

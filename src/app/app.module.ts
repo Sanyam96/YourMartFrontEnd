@@ -24,7 +24,8 @@ const routes : Routes = [
   {path : 'image', component: ImageUploaderComponent},
   {path : 'product/image', component: ImageUploaderComponent},
   {path : 'product', component: AddProductComponent},
-  {path : 'product/:id',component:ProductDetailComponent}  
+  {path : 'product/:id',component:ProductDetailComponent},
+  {path : 'editor/:id', component: AddProductComponent}  
 ]
 
 @NgModule({

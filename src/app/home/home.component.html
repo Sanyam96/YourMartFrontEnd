@@ -3,7 +3,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-8">
       <div class="input-group mb-3">
         <div class="btn-group" dropdown>
             <button id="button-basic" dropdownToggle type="button" class="btn btn-outline-secondary dropdown-toggle" aria-controls="dropdown-basic" aria-expanded="false" aria-haspopup="true">
@@ -56,11 +56,11 @@
         </tbody>
       </table>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-2">
       <div style="padding-top:30px;padding-left:30px;">
         <form>
            <div class="row">
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
               <h5>Choose status:</h5>
               <input type="radio" name="status" value="NEW_CHECKED"/>NEW
               <br />
@@ -69,8 +69,8 @@
               <input type="radio" name="status" value="REVIEW"/>REVIEW
               <br />
               <input type="radio" name="status" value="REJECTED"/>REJECTED
-            </div>
-            <div class="col-md-6">
+            </div> -->
+            <!-- <div class="col-md-6">
               <h5>Sort By:</h5>
                <input type="radio" name="sortBy" value="mrp">MRP
               <br />
@@ -78,12 +78,25 @@
               <br />
               <input type="radio" name="sortBy" value="ymp" />YMP
               <br />
-              <input type="radio" name="sortBy" value="code" />Code
-              <br />
+            </div> -->
+            <div class="btn-group" dropdown>
+              <button id="button-basic" dropdownToggle type="button" class="btn btn-block btn-outline-secondary dropdown-toggle"
+                aria-controls="dropdown-basic" aria-expanded="false" aria-haspopup="true">
+              </button>
+              <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+                <li class="divider dropdown-divider"></li>
+                <li role="menuitem"><a class="dropdown-item" (click)="setSortBy('productName')">Name</a></li>
+                <li class="divider dropdown-divider"></li>
+                <li role="menuitem"><a class="dropdown-item" (click)="setSortBy('mrp')">MRP</a></li>
+                <li class="divider dropdown-divider"></li>
+                <li role="menuitem"><a class="dropdown-item" (click)="setSortBy('ssp')">SSP</a></li>
+                <li class="divider dropdown-divider"></li>
+                <li role="menuitem"><a class="dropdown-item" (click)="setSortBy('ymp')">YMP</a></li>
+              </ul>
             </div>
            </div>
            
-           <input type="submit" class="btn" value="submit">
+           <input type="submit" class="btn" value="submit" (click)="searchProducts()">
         </form>
       </div>
     </div>

@@ -14,9 +14,14 @@ export class ProductService {
 
   }
 
-  getProducts(searchParam?: string, searchQuery?: string) {
-
-    const url = `${this.url}/seller/${this.id}/products?${searchParam}=${searchQuery}`
+  getProducts(searchParam?: string, searchQuery?: string, sortBy?: string) {
+    // let url = `${this.url}/seller/${this.id}/products?`
+    let url = `${this.url}/seller/${this.id}/products?${searchParam}=${searchQuery}`
+    if(searchParam != null) {
+    }
+    if(sortBy != null) {
+      url = `${this.url}/seller/${this.id}/products?sort=${sortBy}`
+    }
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
@@ -56,5 +61,19 @@ export class ProductService {
       })
     };
     return this.http.get(url, httpOptions);
+  }
+
+  setSortBy(parameter: any) {
+
+  }
+
+  updateProduct(product: any, productId: any) {
+    const url = `${this.url}/product/${productId}`
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    return this.http.put(url,product,httpOptions)
   }
 }
